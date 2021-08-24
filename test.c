@@ -82,6 +82,16 @@ int XOR(int x, int y) {
 //	return 0;
 //}
 
+
+//接收函数的地址，调用该函数 —— 回调函数
+void Calc(int (*pf)(int, int)) {
+	int x = 0;
+	int y = 0;
+	printf("请输入两个数：>");
+	scanf("%d%d", &x, &y);
+	printf("%d\n", pf(x, y));
+}
+
 int main() {
 	int input = 0;
 	int x = 0;
@@ -107,3 +117,41 @@ int main() {
 
 	return 0;
 }
+
+//关于冗余的改进，方法2：
+//int main() {
+//	int input = 0;
+//	int x = 0;
+//	int y = 0;
+//	do {
+//		menu();
+//		printf("请选择：>");
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case 1:
+//			Calc(Add);
+//			break;
+//		case 2:
+//			Calc(Sub);
+//			break;
+//		case 3:
+//			Calc(Mul);
+//			break;
+//		case 4:
+//			Calc(Div);
+//			break;
+//      case 5:
+//          Calc(Exp);
+//      case 6:
+//          Calc(XOR);
+//		case 0:
+//			printf("退出！\n");
+//			break;
+//		default:
+//			printf("输入有误，请重新输入！！！\n");
+//			break;
+//		}
+//	} while (input);
+//	return 0;
+//}
